@@ -60,19 +60,6 @@ class WorkoutCompletionBanner: ORBaseBanner {
         
     }()
     
-    private let discardButton: UIButton = {
-        
-        let button = UIButton()
-        
-        button.setTitle(LS("Discard"), for: .normal)
-        button.setTitleColor(.gray, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
-        button.backgroundColor = .foregroundColor
-        button.layer.cornerRadius = 10
-        
-        return button
-        
-    }()
     
     @objc private func saveWorkout() {
         
@@ -88,12 +75,6 @@ class WorkoutCompletionBanner: ORBaseBanner {
         
     }
     
-    @objc private func discardWorkout() {
-        
-        handler.discardWorkout()
-        self.dismiss()
-        
-    }
     
     init(handler: WorkoutCompletionActionHandler) {
         
@@ -107,7 +88,6 @@ class WorkoutCompletionBanner: ORBaseBanner {
         contentView.addSubview(titleLabel)
         contentView.addSubview(saveButton)
         contentView.addSubview(continueButton)
-        contentView.addSubview(discardButton)
         
         titleLabel.snp.makeConstraints { (make) in
             make.top.left.right.equalToSuperview()
@@ -120,22 +100,13 @@ class WorkoutCompletionBanner: ORBaseBanner {
         
         continueButton.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(spacing)
-            make.left.equalToSuperview()
+            make.left.right.equalToSuperview()
             make.bottom.equalTo(saveButton.snp.top).offset(-spacing)
             make.height.equalTo(buttonHeight)
         }
         
-        discardButton.snp.makeConstraints { (make) in
-            make.right.equalToSuperview()
-            make.top.equalTo(continueButton)
-            make.left.equalTo(continueButton.snp.right).offset(spacing)
-            make.height.equalTo(buttonHeight)
-            make.width.equalTo(continueButton)
-        }
-        
         self.saveButton.addTarget(self, action: #selector(saveWorkout), for: .touchUpInside)
         self.continueButton.addTarget(self, action: #selector(continueWorkout), for: .touchUpInside)
-        self.discardButton.addTarget(self, action: #selector(discardWorkout), for: .touchUpInside)
         
         onDismiss = { banner in
             
