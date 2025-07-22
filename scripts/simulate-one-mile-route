@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Use iPhone 16 Pro with iOS 18.5 (latest available)
+SIMULATOR_ID="C692F47B-CF1C-400E-956D-B22E3079BF40"
+
+xcrun simctl location "$SIMULATOR_ID" run "City Run"
