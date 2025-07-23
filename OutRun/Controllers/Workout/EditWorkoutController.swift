@@ -70,7 +70,7 @@ class EditWorkoutController: SettingsViewController {
                         PickerSetting(
                             title: LS("Workout.Type"),
                             selectedIndex: self.workoutType.rawValue,
-                            possibleValues: [Workout.WorkoutType.running, .walking, .cycling],
+                            possibleValues: [Workout.WorkoutType.running, .walking, .cycling, .skating, .hiking],
                             selectionAction: { (workoutType, setting) in
                                 self.workoutType = workoutType
                                 self.validateData()

@@ -27,7 +27,7 @@ struct BackupV1: Codable {
     static let versionCode = "V1"
     
     let date: Date
-    let version: String = BackupV1.versionCode
+    var version: String = BackupV1.versionCode
     let workoutData: [TempV1.Workout]
     
     init(workouts: [TempV1.Workout]) {
@@ -42,7 +42,7 @@ struct BackupV2: Codable {
     static let versionCode = "V2"
     
     let date: Date
-    let version: String = BackupV2.versionCode
+    var version: String = BackupV2.versionCode
     let workoutData: [TempV2.Workout]
     
     init(workouts: [TempV2.Workout]) {
@@ -57,7 +57,7 @@ struct BackupV3: Codable {
     static let versionCode = "V3"
     
     let date: Date
-    let version: String = BackupV3.versionCode
+    var version: String = BackupV3.versionCode
     let workoutData: [TempV3.Workout]
     let eventData: [TempV3.Event]
     

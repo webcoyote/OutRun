@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        _ = WatchConnectivityManager.shared
+        
         let storyboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
         let launchScreen = storyboard.instantiateViewController(withIdentifier: "launchScreen")
         
