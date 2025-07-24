@@ -11,7 +11,7 @@ struct ContentView: View {
     @EnvironmentObject var workoutManager: WatchWorkoutManager
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             if workoutManager.isWorkoutActive {
                 WorkoutView()
             } else {

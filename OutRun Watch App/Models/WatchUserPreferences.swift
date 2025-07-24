@@ -7,20 +7,82 @@
 
 import Foundation
 
+// MARK: - Unit Enums
+enum DistanceUnit: String, CaseIterable {
+    case system = "system"
+    case miles = "miles"
+    case kilometers = "kilometers"
+    
+    var unitLength: UnitLength {
+        switch self {
+        case .system:
+            return Locale.current.usesMetricSystem ? .kilometers : .miles
+        case .miles: return .miles
+        case .kilometers: return .kilometers
+        }
+    }
+    
+    var displayName: String {
+        switch self {
+        case .system:
+            let unit = Locale.current.usesMetricSystem ? "km" : "miles"
+            return "Standard (\(unit))"
+        case .miles: return "Miles"
+        case .kilometers: return "Kilometers"
+        }
+    }
+}
+
+enum AltitudeUnit: String, CaseIterable {
+    case system = "system"
+    case feet = "feet"
+    case meters = "meters"
+    
+    var unitLength: UnitLength {
+        switch self {
+        case .system:
+            return Locale.current.usesMetricSystem ? .meters : .feet
+        case .feet: return .feet
+        case .meters: return .meters
+        }
+    }
+    
+    var displayName: String {
+        switch self {
+        case .system:
+            let unit = Locale.current.usesMetricSystem ? "meters" : "feet"
+            return "Standard (\(unit))"
+        case .feet: return "Feet"
+        case .meters: return "Meters"
+        }
+    }
+}
+
 class WatchUserPreferences {
     
     // MARK: - Storage Keys
     private enum Keys {
         static let distanceUnit = "watch.distanceUnit"
+        static let altitudeUnit = "watch.altitudeUnit"
         static let gpsAccuracy = "watch.gpsAccuracy"
     }
     
     // MARK: - Distance Unit
-    @UserDefault(key: Keys.distanceUnit, defaultValue: true)
-    static var useKilometers: Bool
+    @UserDefault(key: Keys.distanceUnit, defaultValue: DistanceUnit.system.rawValue)
+    static var distanceUnitRaw: String
     
-    static var distanceUnit: UnitLength {
-        useKilometers ? .kilometers : .miles
+    static var distanceUnit: DistanceUnit {
+        get { DistanceUnit(rawValue: distanceUnitRaw) ?? .system }
+        set { distanceUnitRaw = newValue.rawValue }
+    }
+    
+    // MARK: - Altitude Unit
+    @UserDefault(key: Keys.altitudeUnit, defaultValue: AltitudeUnit.system.rawValue)
+    static var altitudeUnitRaw: String
+    
+    static var altitudeUnit: AltitudeUnit {
+        get { AltitudeUnit(rawValue: altitudeUnitRaw) ?? .system }
+        set { altitudeUnitRaw = newValue.rawValue }
     }
     
     // MARK: - GPS Accuracy

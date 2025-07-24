@@ -129,6 +129,11 @@ class WatchWorkoutManager: NSObject, ObservableObject {
         locations.removeAll()
         pauseEvents.removeAll()
         
+        // Check if health data is available
+        guard HKHealthStore.isHealthDataAvailable() else {
+            return
+        }
+        
         let configuration = HKWorkoutConfiguration()
         configuration.activityType = type.healthKitType
         configuration.locationType = .outdoor
@@ -137,18 +142,27 @@ class WatchWorkoutManager: NSObject, ObservableObject {
             workoutSession = try HKWorkoutSession(healthStore: healthStore, configuration: configuration)
             workoutBuilder = workoutSession?.associatedWorkoutBuilder()
             
+            // Set delegates before starting
             workoutSession?.delegate = self
             workoutBuilder?.delegate = self
-            workoutBuilder?.dataSource = HKLiveWorkoutDataSource(healthStore: healthStore, workoutConfiguration: configuration)
             
-            workoutSession?.startActivity(with: Date())
-            workoutBuilder?.beginCollection(withStart: Date()) { success, error in
-                if success {
+            // Create and set data source
+            let dataSource = HKLiveWorkoutDataSource(healthStore: healthStore, workoutConfiguration: configuration)
+            workoutBuilder?.dataSource = dataSource
+            
+            let startDate = Date()
+            
+            // Begin data collection first
+            workoutBuilder?.beginCollection(withStart: startDate) { [weak self] success, error in
+                if let error = error {
+                    print("Failed to begin collection: \(error)")
+                } else if success {
+                    // Now start the workout session
+                    self?.workoutSession?.startActivity(with: startDate)
+                    
                     DispatchQueue.main.async {
-                        self.isWorkoutActive = true
-                        self.isPaused = false
-                        self.startTimer()
-                        self.locationManager?.startUpdatingLocation()
+                        self?.startTimer()
+                        self?.locationManager?.startUpdatingLocation()
                     }
                 }
             }
@@ -273,7 +287,20 @@ class WatchWorkoutManager: NSObject, ObservableObject {
 
 extension WatchWorkoutManager: HKWorkoutSessionDelegate {
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
-        
+        DispatchQueue.main.async {
+            switch toState {
+            case .running:
+                self.isWorkoutActive = true
+                self.isPaused = false
+            case .paused:
+                self.isPaused = true
+            case .stopped:
+                self.isWorkoutActive = false
+                self.isPaused = false
+            default:
+                break
+            }
+        }
     }
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {

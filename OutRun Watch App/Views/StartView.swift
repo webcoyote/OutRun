@@ -12,43 +12,91 @@ struct StartView: View {
     @State private var selectedWorkoutType: WorkoutType = .running
     
     var body: some View {
-        VStack(spacing: 20) {
-            HStack {
-                Spacer()
+        ScrollView {
+            VStack(spacing: 15) {
+                // Workout Type Selection
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Workout Type")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                        .padding(.horizontal, 12)
+                    
+                    NavigationLink(destination: WorkoutTypeSelectionView(selectedType: $selectedWorkoutType)) {
+                        HStack {
+                            Text(selectedWorkoutType.displayName)
+                                .foregroundColor(.primary)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 12)
+                        .frame(maxWidth: .infinity)
+                        .contentShape(Rectangle())
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .background(Color(UIColor.darkGray))
+                    .cornerRadius(8)
+                }
+
+                Button(action: {
+                    workoutManager.startWorkout(type: selectedWorkoutType)
+                }) {
+                    Text("Start")
+                        .font(.title3)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .background(Color.green)
+                        .cornerRadius(10)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(PlainButtonStyle())
+                .padding(.top, 20)
+            }
+            .padding(.horizontal)
+        }
+        .navigationTitle("OutRun")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
                 NavigationLink(destination: SettingsView()) {
                     Image(systemName: "gear")
-                        .font(.title3)
                         .foregroundColor(.secondary)
+                }
+            }
+        }
+    }
+}
+
+struct WorkoutTypeSelectionView: View {
+    @Binding var selectedType: WorkoutType
+    @Environment(\.presentationMode) var presentationMode
+    
+    var body: some View {
+        List {
+            ForEach(WorkoutType.allCases, id: \.self) { type in
+                Button(action: {
+                    selectedType = type
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    HStack {
+                        Text(type.displayName)
+                            .foregroundColor(.primary)
+                        Spacer()
+                        if selectedType == type {
+                            Image(systemName: "checkmark")
+                                .foregroundColor(.green)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .contentShape(Rectangle())
                 }
                 .buttonStyle(PlainButtonStyle())
             }
-            
-            Text("OutRun")
-                .font(.title2)
-                .fontWeight(.bold)
-            
-            Picker("Workout Type", selection: $selectedWorkoutType) {
-                ForEach(WorkoutType.allCases, id: \.self) { type in
-                    Text(type.displayName).tag(type)
-                }
-            }
-            .pickerStyle(WheelPickerStyle())
-            .frame(height: 100)
-            
-            Button(action: {
-                workoutManager.startWorkout(type: selectedWorkoutType)
-            }) {
-                Text("Start")
-                    .font(.title3)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.green)
-                    .cornerRadius(10)
-            }
-            .buttonStyle(PlainButtonStyle())
         }
-        .padding()
-        .navigationBarHidden(true)
+        .navigationTitle("Workout Type")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
