@@ -16,7 +16,7 @@ enum DistanceUnit: String, CaseIterable {
     var unitLength: UnitLength {
         switch self {
         case .system:
-            return Locale.current.usesMetricSystem ? .kilometers : .miles
+            return Locale.current.measurementSystem == .metric ? .kilometers : .miles
         case .miles: return .miles
         case .kilometers: return .kilometers
         }
@@ -25,7 +25,7 @@ enum DistanceUnit: String, CaseIterable {
     var displayName: String {
         switch self {
         case .system:
-            let unit = Locale.current.usesMetricSystem ? "km" : "miles"
+            let unit = Locale.current.measurementSystem == .metric ? "km" : "miles"
             return "Standard (\(unit))"
         case .miles: return "Miles"
         case .kilometers: return "Kilometers"
@@ -41,7 +41,7 @@ enum AltitudeUnit: String, CaseIterable {
     var unitLength: UnitLength {
         switch self {
         case .system:
-            return Locale.current.usesMetricSystem ? .meters : .feet
+            return Locale.current.measurementSystem == .metric ? .meters : .feet
         case .feet: return .feet
         case .meters: return .meters
         }
@@ -50,7 +50,7 @@ enum AltitudeUnit: String, CaseIterable {
     var displayName: String {
         switch self {
         case .system:
-            let unit = Locale.current.usesMetricSystem ? "meters" : "feet"
+            let unit = Locale.current.measurementSystem == .metric ? "meters" : "feet"
             return "Standard (\(unit))"
         case .feet: return "Feet"
         case .meters: return "Meters"

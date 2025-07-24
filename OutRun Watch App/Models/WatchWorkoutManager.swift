@@ -221,7 +221,7 @@ class WatchWorkoutManager: NSObject, ObservableObject {
                     self.pace = 0
                     self.heartRate = nil
                     
-                    if let workout = workout {
+                    if workout != nil {
                         self.saveWorkoutData()
                     }
                 }
