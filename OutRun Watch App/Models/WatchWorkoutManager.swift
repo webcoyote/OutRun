@@ -259,6 +259,7 @@ class WatchWorkoutManager: NSObject, ObservableObject {
         guard let startDate = startDate else { return }
         
         let workoutData: [String: Any] = [
+            "id": UUID().uuidString,
             "workoutType": workoutType.rawValue,
             "startDate": startDate,
             "endDate": Date(),
@@ -420,7 +421,7 @@ extension WatchWorkoutManager: WCSessionDelegate {
         for workout in pendingWorkouts {
             session.sendMessage(workout, replyHandler: { _ in
                 if var remaining = UserDefaults.standard.array(forKey: "PendingWorkouts") as? [[String: Any]] {
-                    remaining.removeAll { $0["startDate"] as? Date == workout["startDate"] as? Date }
+                    remaining.removeAll { $0["id"] as? String == workout["id"] as? String }
                     UserDefaults.standard.set(remaining, forKey: "PendingWorkouts")
                 }
             }) { error in

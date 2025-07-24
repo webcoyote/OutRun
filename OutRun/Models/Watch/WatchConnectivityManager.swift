@@ -21,6 +21,7 @@
 import Foundation
 import WatchConnectivity
 import CoreLocation
+import CoreStore
 
 class WatchConnectivityManager: NSObject, WCSessionDelegate {
     
@@ -70,6 +71,14 @@ class WatchConnectivityManager: NSObject, WCSessionDelegate {
               let _ = data["duration"] as? TimeInterval else {
             print("Invalid workout data received from watch")
             return
+        }
+        
+        // Check for duplicate workout by ID if provided
+        if let workoutId = data["id"] as? String {
+            if checkForDuplicateWatchWorkout(withId: workoutId) {
+                print("Workout with ID \(workoutId) already exists, skipping")
+                return
+            }
         }
         
         let workoutType = Workout.WorkoutType(rawValue: workoutTypeRaw)
@@ -128,6 +137,8 @@ class WatchConnectivityManager: NSObject, WCSessionDelegate {
             ).converting(to: UnitEnergy.standardUnit).value
         }
         
+        let watchId = data["id"] as? String
+        
         let tempWorkout = TempWorkout(
             uuid: nil,
             workoutType: workoutType.rawValue,
@@ -137,7 +148,7 @@ class WatchConnectivityManager: NSObject, WCSessionDelegate {
             steps: nil,
             isRace: false,
             isUserModified: false,
-            comment: nil,
+            comment: watchId != nil ? "watch:\(watchId!)" : nil,
             burnedEnergy: burnedEnergy,
             healthKitUUID: nil,
             workoutEvents: tempWorkoutEvents,
@@ -161,5 +172,22 @@ class WatchConnectivityManager: NSObject, WCSessionDelegate {
         }
         
         DispatchQueue.main.async(execute: saveWorkout)
+    }
+    
+    private func checkForDuplicateWatchWorkout(withId id: String) -> Bool {
+        let searchString = "watch:\(id)"
+        var hasDuplicate = false
+        
+        do {
+            let count = try CoreStore.defaultStack.fetchCount(
+                From<Workout>()
+                    .where(\.comment == searchString)
+            )
+            hasDuplicate = count > 0
+        } catch {
+            print("Error checking for duplicate watch workout: \(error)")
+        }
+        
+        return hasDuplicate
     }
 }
