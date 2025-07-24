@@ -12,7 +12,7 @@ struct WorkoutView: View {
     @State private var showEndConfirmation = false
     
     var body: some View {
-        VStack(spacing: 0) {
+        ZStack {
             VStack(alignment: .leading, spacing: 2) {
                 Text(workoutManager.formattedDuration)
                     .font(.title3)
@@ -20,7 +20,7 @@ struct WorkoutView: View {
                     .foregroundColor(workoutManager.isPaused ? .gray : .yellow)
                 
                 HStack(spacing: 4) {
-                    Text(workoutManager.heartRate != nil ? "\(Int(workoutManager.heartRate!))" : "")
+                    Text(workoutManager.heartRate != nil ? "\(Int(workoutManager.heartRate!))" : "--")
                         .font(.title3)
                         .fontWeight(.semibold)
                     Image(systemName: "heart.fill")
@@ -39,34 +39,45 @@ struct WorkoutView: View {
             .padding(.horizontal)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             
-            Spacer()
-            
-            HStack(spacing: 30) {
-                Button(action: {
-                    workoutManager.togglePause()
-                }) {
-                    Image(systemName: workoutManager.isPaused ? "play.fill" : "pause.fill")
-                        .font(.body)
-                        .frame(width: 44, height: 44)
-                        .background(Color.orange)
-                        .clipShape(Circle())
-                }
-                .buttonStyle(PlainButtonStyle())
+            VStack {
+                Spacer()
                 
-                Button(action: {
-                    showEndConfirmation = true
-                }) {
-                    Image(systemName: "stop.fill")
-                        .font(.body)
-                        .frame(width: 44, height: 44)
-                        .background(Color.red)
-                        .clipShape(Circle())
+                HStack(spacing: 30) {
+                    Button(action: {
+                        workoutManager.togglePause()
+                    }) {
+                        Image(systemName: workoutManager.isPaused ? "play.fill" : "pause.fill")
+                            .font(.body)
+                            .frame(width: 44, height: 44)
+                            .background(Color.orange)
+                            .clipShape(Circle())
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    Button(action: {
+                        showEndConfirmation = true
+                    }) {
+                        Image(systemName: "stop.fill")
+                            .font(.body)
+                            .frame(width: 44, height: 44)
+                            .background(Color.red)
+                            .clipShape(Circle())
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
-                .buttonStyle(PlainButtonStyle())
+                .padding(.bottom, 4)
             }
-            .padding(.bottom, 10)
         }
         .edgesIgnoringSafeArea(.bottom)
+        .overlay(
+            Group {
+                if showEndConfirmation {
+                    Color.black
+                        .opacity(0.8)
+                        .edgesIgnoringSafeArea(.all)
+                }
+            }
+        )
         .navigationTitle {
             HStack {
                 if workoutManager.isPaused {

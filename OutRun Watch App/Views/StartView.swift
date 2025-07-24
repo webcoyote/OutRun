@@ -54,6 +54,14 @@ struct StartView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
                 .padding(.top, 20)
+                
+                if let error = workoutManager.workoutError {
+                    Text(error)
+                        .font(.caption)
+                        .foregroundColor(.red)
+                        .multilineTextAlignment(.center)
+                        .padding(.top, 8)
+                }
             }
             .padding(.horizontal)
         }
