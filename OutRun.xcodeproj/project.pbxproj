@@ -86,8 +86,6 @@
 		2288F6B422E0FB5C0014471C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2288F6B322E0FB5C0014471C /* UIColor.swift */; };
 		228BD39023EB51910019C322 /* BackupDocumentPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228BD38F23EB51910019C322 /* BackupDocumentPickerDelegate.swift */; };
 		229186332367909D00929885 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229186322367909D00929885 /* PolicyViewController.swift */; };
-		B9A42EDA10F640669CDE910B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A42EDA10F640669CDE910C /* SettingsViewController.swift */; };
-		E461BD5ACA31426581C061A1 /* ClearSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461BD5ACA31426581C061A2 /* ClearSettingsViewController.swift */; };
 		2291863A23679AA300929885 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2291863C23679AA300929885 /* InfoPlist.strings */; };
 		2298D2102345496600344989 /* OutRunV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2298D20F2345496600344989 /* OutRunV1.swift */; };
 		2298D2142345524C00344989 /* WorkoutBuilderTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2298D2132345524C00344989 /* WorkoutBuilderTypeView.swift */; };
@@ -185,7 +183,9 @@
 		829CF61EF7EA04289AB0DB0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1514895E3CCE0C35717E0B6A /* ContentView.swift */; };
 		85142B33693126E310B755D3 /* WatchUserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5870F541AAB0B06ADA2562FF /* WatchUserPreferences.swift */; };
 		A694A47B9BE26D76643A9660 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0907794653C71D17052D44 /* WatchConnectivityManager.swift */; };
+		B9A42EDA10F640669CDE910B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A42EDA10F640669CDE910C /* SettingsViewController.swift */; };
 		D4055621EBF0C4BFBCCFC680 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5944187625546E2DAE622B4 /* Foundation.framework */; };
+		E461BD5ACA31426581C061A1 /* ClearSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461BD5ACA31426581C061A2 /* ClearSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -296,8 +296,6 @@
 		2288F6B322E0FB5C0014471C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		228BD38F23EB51910019C322 /* BackupDocumentPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupDocumentPickerDelegate.swift; sourceTree = "<group>"; };
 		229186322367909D00929885 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
-		B9A42EDA10F640669CDE910C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		E461BD5ACA31426581C061A2 /* ClearSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearSettingsViewController.swift; sourceTree = "<group>"; };
 		2291863B23679AA300929885 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2298D20F2345496600344989 /* OutRunV1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutRunV1.swift; sourceTree = "<group>"; };
 		2298D2132345524C00344989 /* WorkoutBuilderTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutBuilderTypeView.swift; sourceTree = "<group>"; };
@@ -400,11 +398,13 @@
 		A5CF083AB36190EDEA27905D /* WorkoutType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Models/WorkoutType.swift; sourceTree = "<group>"; };
 		AA51FC3CA8225E19226C756A /* OutRun Watch App.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; name = "OutRun Watch App.entitlements"; path = "OutRun Watch App/OutRun Watch App.entitlements"; sourceTree = "<group>"; };
 		AF7BE218EA4BB8A74621DCDE /* OutRun Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OutRun Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9A42EDA10F640669CDE910C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BA0907794653C71D17052D44 /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		C1C8D965F1351F85D4E4F35D /* Pods-OutRun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OutRun.release.xcconfig"; path = "Pods/Target Support Files/Pods-OutRun/Pods-OutRun.release.xcconfig"; sourceTree = "<group>"; };
 		C364C7C3A5A2D83F8D509140 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA92D0A7E9C9655C27820AD1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "OutRun Watch App/Info.plist"; sourceTree = "<group>"; };
 		D2DC1601B9458B3FC1788F0E /* Pods_OutRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OutRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E461BD5ACA31426581C061A2 /* ClearSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearSettingsViewController.swift; sourceTree = "<group>"; };
 		F2630BDAE3C9F45B010ED079 /* OutRunApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OutRunApp.swift; sourceTree = "<group>"; };
 		F5944187625546E2DAE622B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS11.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -1139,13 +1139,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OutRun/Pods-OutRun-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OutRun/Pods-OutRun-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

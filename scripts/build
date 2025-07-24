@@ -5,6 +5,10 @@ START_TIME=$(date +%s.%N)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR/.."
 
+if [[ ! -d "Pods" ]]; then
+    pod install
+fi
+
 echo "🔨 Building app..."
 xcodebuild \
     -workspace OutRun.xcworkspace \
