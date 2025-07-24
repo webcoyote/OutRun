@@ -66,16 +66,18 @@ class WatchWorkoutManager: NSObject, ObservableObject {
     }
     
     var formattedPace: String {
-        guard distance > 0 else { return "--:--" }
+        guard distance > 10 else { return "--:--" }
         let distanceUnit = WatchUserPreferences.distanceUnit
         
         if distanceUnit == .kilometers {
             let paceInSecondsPerKm = (duration / distance) * 1000
+            guard paceInSecondsPerKm < Double(Int.max) else { return "--:--" }
             let minutes = Int(paceInSecondsPerKm) / 60
             let seconds = Int(paceInSecondsPerKm) % 60
             return String(format: "%d:%02d/km", minutes, seconds)
         } else {
             let paceInSecondsPerMile = (duration / distance) * 1609.344
+            guard paceInSecondsPerMile < Double(Int.max) else { return "--:--" }
             let minutes = Int(paceInSecondsPerMile) / 60
             let seconds = Int(paceInSecondsPerMile) % 60
             return String(format: "%d:%02d/mi", minutes, seconds)
