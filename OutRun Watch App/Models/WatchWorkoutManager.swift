@@ -45,19 +45,40 @@ class WatchWorkoutManager: NSObject, ObservableObject {
     }
     
     var formattedDistance: String {
-        if distance < 1000 {
-            return String(format: "%.0f m", distance)
+        let distanceUnit = WatchUserPreferences.distanceUnit
+        
+        if distanceUnit == .kilometers {
+            if distance < 1000 {
+                return String(format: "%.0f m", distance)
+            } else {
+                return String(format: "%.2f km", distance / 1000)
+            }
         } else {
-            return String(format: "%.2f km", distance / 1000)
+            let distanceInMiles = distance * 0.000621371
+            if distanceInMiles < 0.1 {
+                let distanceInFeet = distance * 3.28084
+                return String(format: "%.0f ft", distanceInFeet)
+            } else {
+                return String(format: "%.2f mi", distanceInMiles)
+            }
         }
     }
     
     var formattedPace: String {
         guard distance > 0 else { return "--:--" }
-        let paceInSecondsPerKm = (duration / distance) * 1000
-        let minutes = Int(paceInSecondsPerKm) / 60
-        let seconds = Int(paceInSecondsPerKm) % 60
-        return String(format: "%d:%02d /km", minutes, seconds)
+        let distanceUnit = WatchUserPreferences.distanceUnit
+        
+        if distanceUnit == .kilometers {
+            let paceInSecondsPerKm = (duration / distance) * 1000
+            let minutes = Int(paceInSecondsPerKm) / 60
+            let seconds = Int(paceInSecondsPerKm) % 60
+            return String(format: "%d:%02d /km", minutes, seconds)
+        } else {
+            let paceInSecondsPerMile = (duration / distance) * 1609.344
+            let minutes = Int(paceInSecondsPerMile) / 60
+            let seconds = Int(paceInSecondsPerMile) % 60
+            return String(format: "%d:%02d /mi", minutes, seconds)
+        }
     }
     
     override init() {
@@ -290,6 +311,28 @@ extension WatchWorkoutManager: HKLiveWorkoutBuilderDelegate {
 extension WatchWorkoutManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
+        
+        // Apply GPS accuracy filtering based on user preference
+        let gpsAccuracy = WatchUserPreferences.gpsAccuracy
+        
+        // Filter based on GPS accuracy setting
+        if let accuracyThreshold = gpsAccuracy, accuracyThreshold > 0 {
+            // If accuracy threshold is set and location doesn't meet it, skip
+            if location.horizontalAccuracy > accuracyThreshold {
+                return
+            }
+        } else if gpsAccuracy == -1 {
+            // GPS filtering is off, accept all locations with positive accuracy
+            if location.horizontalAccuracy <= 0 {
+                return
+            }
+        } else {
+            // Standard (nil) - use dynamic filtering
+            // Skip locations with poor accuracy during normal tracking
+            if location.horizontalAccuracy > 50 || location.horizontalAccuracy <= 0 {
+                return
+            }
+        }
         
         self.locations.append(location)
         

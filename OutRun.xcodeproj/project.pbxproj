@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08FE592FE497AF3574BE113B /* Views/WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167CE95799BF9C1031A062DD /* Views/WorkoutView.swift */; };
-		17F5BDF77DC4405056DA757F /* Models/WatchWorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A8464EA370E141135FC14 /* Models/WatchWorkoutManager.swift */; };
-		1B7D62611512250E521A6104 /* Models/WorkoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF083AB36190EDEA27905D /* Models/WorkoutType.swift */; };
+		01E0F1B158D94B31E98498ED /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85BC0F52BF551C8901732E /* SettingsView.swift */; };
+		08FE592FE497AF3574BE113B /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167CE95799BF9C1031A062DD /* WorkoutView.swift */; };
+		17F5BDF77DC4405056DA757F /* WatchWorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A8464EA370E141135FC14 /* WatchWorkoutManager.swift */; };
+		1B7D62611512250E521A6104 /* WorkoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF083AB36190EDEA27905D /* WorkoutType.swift */; };
 		22003DFC23A9655100EBCD05 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22003DFB23A9655100EBCD05 /* SetupViewController.swift */; };
 		22003DFE23A9779D00EBCD05 /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22003DFD23A9779D00EBCD05 /* SetupView.swift */; };
 		22015319231663E300BD79AF /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22015318231663E300BD79AF /* UIViewController.swift */; };
@@ -30,7 +31,6 @@
 		2221997F2439F6FF00ADAE24 /* CustomNumberFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2221997E2439F6FF00ADAE24 /* CustomNumberFormatting.swift */; };
 		222199812439F93C00ADAE24 /* UnitConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222199802439F93C00ADAE24 /* UnitConversion.swift */; };
 		22219983243A21AD00ADAE24 /* WorkoutListSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22219982243A21AD00ADAE24 /* WorkoutListSortViewController.swift */; };
-		222632AA24B24B980017517E /* ClearSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222632A924B24B980017517E /* ClearSettingsViewController.swift */; };
 		222632AC24B24FF80017517E /* ShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222632AB24B24FF80017517E /* ShareManager.swift */; };
 		2226A3BD240BF9AD00FF7A94 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2226A3BC240BF9AD00FF7A94 /* ProgressViewController.swift */; };
 		2226A3BF240C441700FF7A94 /* TextViewSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2226A3BE240C441700FF7A94 /* TextViewSetting.swift */; };
@@ -78,7 +78,6 @@
 		227ED84C240FAA9B0083EE96 /* WorkoutActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227ED84B240FAA9B0083EE96 /* WorkoutActionView.swift */; };
 		227ED84E240FAC460083EE96 /* EditWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227ED84D240FAC460083EE96 /* EditWorkoutView.swift */; };
 		227ED850240FB15B0083EE96 /* TextStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227ED84F240FB15B0083EE96 /* TextStatsView.swift */; };
-		227EE7662349577F000C0D67 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227EE7652349577F000C0D67 /* SettingsViewController.swift */; };
 		228187F42393990900400135 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228187F32393990900400135 /* UILabel.swift */; };
 		2287753E234A3DF60078CE12 /* TextInputSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287753D234A3DF60078CE12 /* TextInputSetting.swift */; };
 		22877540234A527C0078CE12 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287753F234A527C0078CE12 /* UITextField.swift */; };
@@ -180,10 +179,11 @@
 		22FEA0B324CDE31E0007CA9C /* DebugController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FEA0B224CDE31E0007CA9C /* DebugController.swift */; };
 		2D0058B1CC97A7F85C10E720 /* OutRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2630BDAE3C9F45B010ED079 /* OutRunApp.swift */; };
 		2FCCA84312F0654D4953E3CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C364C7C3A5A2D83F8D509140 /* Assets.xcassets */; };
-		3DD80D8094C613A03CF0D57C /* Views/StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C70738B8E43A0FFB8116AAF /* Views/StartView.swift */; };
+		3DD80D8094C613A03CF0D57C /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C70738B8E43A0FFB8116AAF /* StartView.swift */; };
 		50A16B63C6F23E2D1E6210BA /* Pods_OutRun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2DC1601B9458B3FC1788F0E /* Pods_OutRun.framework */; };
 		6688E27A296AEEBEA6BF70F6 /* OutRun Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5028DAEEEB3E5D6964CB4D0D /* OutRun Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		829CF61EF7EA04289AB0DB0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1514895E3CCE0C35717E0B6A /* ContentView.swift */; };
+		85142B33693126E310B755D3 /* WatchUserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5870F541AAB0B06ADA2562FF /* WatchUserPreferences.swift */; };
 		A694A47B9BE26D76643A9660 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0907794653C71D17052D44 /* WatchConnectivityManager.swift */; };
 		D4055621EBF0C4BFBCCFC680 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5944187625546E2DAE622B4 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -216,7 +216,7 @@
 		00930B8CB92693FADC7D44E2 /* OutRunApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OutRunApp.swift; path = "OutRun Watch App/OutRunApp.swift"; sourceTree = "<group>"; };
 		07CC8A88766260E12ED19685 /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = "OutRun Watch App/ContentView.swift"; sourceTree = "<group>"; };
 		1514895E3CCE0C35717E0B6A /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		167CE95799BF9C1031A062DD /* Views/WorkoutView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Views/WorkoutView.swift; sourceTree = "<group>"; };
+		167CE95799BF9C1031A062DD /* WorkoutView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Views/WorkoutView.swift; sourceTree = "<group>"; };
 		22003DFB23A9655100EBCD05 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		22003DFD23A9779D00EBCD05 /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
 		22015318231663E300BD79AF /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -237,7 +237,6 @@
 		2221997E2439F6FF00ADAE24 /* CustomNumberFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNumberFormatting.swift; sourceTree = "<group>"; };
 		222199802439F93C00ADAE24 /* UnitConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConversion.swift; sourceTree = "<group>"; };
 		22219982243A21AD00ADAE24 /* WorkoutListSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListSortViewController.swift; sourceTree = "<group>"; };
-		222632A924B24B980017517E /* ClearSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearSettingsViewController.swift; sourceTree = "<group>"; };
 		222632AB24B24FF80017517E /* ShareManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareManager.swift; sourceTree = "<group>"; };
 		2226A3BC240BF9AD00FF7A94 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		2226A3BE240C441700FF7A94 /* TextViewSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewSetting.swift; sourceTree = "<group>"; };
@@ -289,7 +288,6 @@
 		227ED84B240FAA9B0083EE96 /* WorkoutActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutActionView.swift; sourceTree = "<group>"; };
 		227ED84D240FAC460083EE96 /* EditWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutView.swift; sourceTree = "<group>"; };
 		227ED84F240FB15B0083EE96 /* TextStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStatsView.swift; sourceTree = "<group>"; };
-		227EE7652349577F000C0D67 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		228187F32393990900400135 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		2287753D234A3DF60078CE12 /* TextInputSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputSetting.swift; sourceTree = "<group>"; };
 		2287753F234A527C0078CE12 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -390,14 +388,16 @@
 		22FEA0AE24CDD7B50007CA9C /* DiskStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskStorage.swift; sourceTree = "<group>"; };
 		22FEA0B024CDDFF80007CA9C /* CustomByteFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomByteFormatting.swift; sourceTree = "<group>"; };
 		22FEA0B224CDE31E0007CA9C /* DebugController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugController.swift; sourceTree = "<group>"; };
-		455A8464EA370E141135FC14 /* Models/WatchWorkoutManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Models/WatchWorkoutManager.swift; sourceTree = "<group>"; };
+		455A8464EA370E141135FC14 /* WatchWorkoutManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Models/WatchWorkoutManager.swift; sourceTree = "<group>"; };
 		5028DAEEEB3E5D6964CB4D0D /* OutRun Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OutRun Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C70738B8E43A0FFB8116AAF /* Views/StartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Views/StartView.swift; sourceTree = "<group>"; };
+		5870F541AAB0B06ADA2562FF /* WatchUserPreferences.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WatchUserPreferences.swift; path = Models/WatchUserPreferences.swift; sourceTree = "<group>"; };
+		7A85BC0F52BF551C8901732E /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SettingsView.swift; path = Views/SettingsView.swift; sourceTree = "<group>"; };
+		7C70738B8E43A0FFB8116AAF /* StartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Views/StartView.swift; sourceTree = "<group>"; };
 		816B1EAD7B81CFF0C45AD567 /* OutRun Watch App.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = "OutRun Watch App.entitlements"; sourceTree = "<group>"; };
 		84F01B955EA2503DD1622C03 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "OutRun Watch App/Assets.xcassets"; sourceTree = "<group>"; };
 		8C0699EE439FF3DC5E16B8E0 /* Pods-OutRun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OutRun.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OutRun/Pods-OutRun.debug.xcconfig"; sourceTree = "<group>"; };
 		918AF732EE92E4EE7EC5055A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5CF083AB36190EDEA27905D /* Models/WorkoutType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Models/WorkoutType.swift; sourceTree = "<group>"; };
+		A5CF083AB36190EDEA27905D /* WorkoutType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Models/WorkoutType.swift; sourceTree = "<group>"; };
 		AA51FC3CA8225E19226C756A /* OutRun Watch App.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; name = "OutRun Watch App.entitlements"; path = "OutRun Watch App/OutRun Watch App.entitlements"; sourceTree = "<group>"; };
 		AF7BE218EA4BB8A74621DCDE /* OutRun Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OutRun Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0907794653C71D17052D44 /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
@@ -605,8 +605,6 @@
 		22A2D43223E31327003580EC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				222632A924B24B980017517E /* ClearSettingsViewController.swift */,
-				227EE7652349577F000C0D67 /* SettingsViewController.swift */,
 				229186322367909D00929885 /* PolicyViewController.swift */,
 				B9A42EDA10F640669CDE910C /* SettingsViewController.swift */,
 				E461BD5ACA31426581C061A2 /* ClearSettingsViewController.swift */,
@@ -969,8 +967,9 @@
 		AFDF67352CFDCD639A3EBA8D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				455A8464EA370E141135FC14 /* Models/WatchWorkoutManager.swift */,
-				A5CF083AB36190EDEA27905D /* Models/WorkoutType.swift */,
+				455A8464EA370E141135FC14 /* WatchWorkoutManager.swift */,
+				A5CF083AB36190EDEA27905D /* WorkoutType.swift */,
+				5870F541AAB0B06ADA2562FF /* WatchUserPreferences.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1014,8 +1013,9 @@
 		D399B6A6A2D8C5C1DE10B7C6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7C70738B8E43A0FFB8116AAF /* Views/StartView.swift */,
-				167CE95799BF9C1031A062DD /* Views/WorkoutView.swift */,
+				7C70738B8E43A0FFB8116AAF /* StartView.swift */,
+				167CE95799BF9C1031A062DD /* WorkoutView.swift */,
+				7A85BC0F52BF551C8901732E /* SettingsView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1185,7 +1185,6 @@
 				2273943C233BF6EA00176A07 /* WorkoutMapImageManager.swift in Sources */,
 				22AB2FB7233CC925002EF0DE /* UIImage.swift in Sources */,
 				22ACA7C324D97703005DFB4E /* ORBaseBanner.swift in Sources */,
-				222632AA24B24B980017517E /* ClearSettingsViewController.swift in Sources */,
 				22AB2FB3233CBDA4002EF0DE /* MapViewControllerWithContainerView.swift in Sources */,
 				225AC6A8243FA088008D493D /* HealthQueryManager.swift in Sources */,
 				22CBB4552303FF8F00DDA2E0 /* RouteStatsView.swift in Sources */,
@@ -1238,7 +1237,6 @@
 				228187F42393990900400135 /* UILabel.swift in Sources */,
 				22FEA0B324CDE31E0007CA9C /* DebugController.swift in Sources */,
 				222AB94B243C725B000E8BB7 /* OutRunV3.swift in Sources */,
-				227EE7662349577F000C0D67 /* SettingsViewController.swift in Sources */,
 				22F23F3F2422C44200838B87 /* KeyboardAvoidanceSetting.swift in Sources */,
 				228BD39023EB51910019C322 /* BackupDocumentPickerDelegate.swift in Sources */,
 				22F3318D23AA23DD006CB7E5 /* SetupSwitchView.swift in Sources */,
@@ -1350,10 +1348,12 @@
 			files = (
 				2D0058B1CC97A7F85C10E720 /* OutRunApp.swift in Sources */,
 				829CF61EF7EA04289AB0DB0F /* ContentView.swift in Sources */,
-				17F5BDF77DC4405056DA757F /* Models/WatchWorkoutManager.swift in Sources */,
-				1B7D62611512250E521A6104 /* Models/WorkoutType.swift in Sources */,
-				3DD80D8094C613A03CF0D57C /* Views/StartView.swift in Sources */,
-				08FE592FE497AF3574BE113B /* Views/WorkoutView.swift in Sources */,
+				17F5BDF77DC4405056DA757F /* WatchWorkoutManager.swift in Sources */,
+				1B7D62611512250E521A6104 /* WorkoutType.swift in Sources */,
+				3DD80D8094C613A03CF0D57C /* StartView.swift in Sources */,
+				08FE592FE497AF3574BE113B /* WorkoutView.swift in Sources */,
+				85142B33693126E310B755D3 /* WatchUserPreferences.swift in Sources */,
+				01E0F1B158D94B31E98498ED /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

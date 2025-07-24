@@ -13,6 +13,16 @@ struct StartView: View {
     
     var body: some View {
         VStack(spacing: 20) {
+            HStack {
+                Spacer()
+                NavigationLink(destination: SettingsView()) {
+                    Image(systemName: "gear")
+                        .font(.title3)
+                        .foregroundColor(.secondary)
+                }
+                .buttonStyle(PlainButtonStyle())
+            }
+            
             Text("OutRun")
                 .font(.title2)
                 .fontWeight(.bold)
