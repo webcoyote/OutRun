@@ -55,12 +55,16 @@ class WatchConnectivityManager: NSObject, WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        processWorkoutData(message)
+        DispatchQueue.main.async {
+            self.processWorkoutData(message)
+        }
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-        processWorkoutData(message)
-        replyHandler(["status": "received"])
+        DispatchQueue.main.async {
+            self.processWorkoutData(message)
+            replyHandler(["status": "received"])
+        }
     }
     
     private func processWorkoutData(_ data: [String: Any]) {
