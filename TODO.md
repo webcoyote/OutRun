@@ -1,0 +1,2 @@
+- Fix race condition causing crash when syncing from watch. Maybe saving data doesn't work at all now?
+- Add sync validation to watch app with retry and back off
