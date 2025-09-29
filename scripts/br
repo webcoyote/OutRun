@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # build and run
-set -euo pipefail
+set -Eeuo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR/.."
 

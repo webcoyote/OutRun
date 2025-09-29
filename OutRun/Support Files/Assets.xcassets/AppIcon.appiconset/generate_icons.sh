@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -Eeuo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
@@ -7,7 +7,7 @@ cd "$SCRIPT_DIR"
 # Run this script in the AppIcon.appiconset directory
 
 # Check if Icon.png exists
-if [ ! -f "Icon.png" ]; then
+if [[ ! -f "Icon.png" ]]; then
     echo "Error: Icon.png not found in current directory"
     exit 1
 fi
@@ -45,7 +45,7 @@ magick Icon.png -resize 167x167 icon_83.5@2x.png
 
 # Watch app icons
 WATCH_DIR="../../../../OutRun Watch App/Assets.xcassets/AppIcon.appiconset"
-if [ -d "$WATCH_DIR" ]; then
+if [[ -d "$WATCH_DIR" ]]; then
     echo "Generating watch app icons..."
     
     # Notification Center icons
@@ -80,7 +80,7 @@ fi
 
 # Widget app icon
 WIDGET_DIR="../../../../OutRunWidgets/Assets.xcassets/AppIcon.appiconset"
-if [ -d "$WIDGET_DIR" ]; then
+if [[ -d "$WIDGET_DIR" ]]; then
     echo "Generating widget app icon..."
     
     # Widget icon (1024x1024 for watchOS universal)

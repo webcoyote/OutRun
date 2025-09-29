@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -Eeuo pipefail
 START_TIME=$(date +%s.%N)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR/.."
@@ -13,7 +13,7 @@ open -a Simulator
 
 # Check if simulator is already booted, boot if needed
 SIMULATOR_STATE=$(xcrun simctl list devices | grep "$SIMULATOR_ID" | grep -o "(.*)" | tr -d "()")
-if [ "$SIMULATOR_STATE" != "Booted" ]; then
+if [[ "$SIMULATOR_STATE" != "Booted" ]]; then
     echo "🔄 Booting simulator"
     xcrun simctl boot "$SIMULATOR_ID" 2>/dev/null || true
     sleep 3
@@ -21,7 +21,7 @@ fi
 
 # Look for the app in the DerivedData build products
 APP_PATH=".DerivedData/Build/Products/Debug-iphonesimulator/OutRun.app"
-if [ ! -d "$APP_PATH" ]; then
+if [[ ! -d "$APP_PATH" ]]; then
     echo "❌ Could not find built app at: $APP_PATH"
     echo "   Run 'scripts/build' first to build the app"
     exit 1
